@@ -21,7 +21,7 @@ def main():
     fetchSize = 500 * int(batchSize / (negativeK + 1))  # Fetches data for 500 updates
     maxSentLength = 75
     modelName = "bert-base-uncased"
-    corpusName = "random"
+    corpusName = "english"
 
     # Load Model
     m1 = transformers.TFAutoModel.from_pretrained(modelName)
@@ -37,8 +37,8 @@ def main():
     corpusData = corpusDataFunc()
     evalData = evalDataFunc()
 
-    #model1Eval, model2Eval = Evaluation.evaluateOnData(model, textEncodeFunc, evalData)
-    #print("Pre Training Evaluation Scores:", model1Eval)
+    model1Eval, model2Eval = Evaluation.evaluateOnData(model, textEncodeFunc, evalData)
+    print("Pre Training Evaluation Scores:", model1Eval)
     while (True):
         inds1, att1, inds2, att2, labels = generateTrainingDataFunc(tokenizer, corpusData, numBatches=fetchSize,
                                                                     negativeK=negativeK,
