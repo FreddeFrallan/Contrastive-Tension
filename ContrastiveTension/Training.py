@@ -1,7 +1,6 @@
-from TrainingData import RandomTrainingData
-from STSData import Evaluation
 from ContrastiveTension import ContrastiveTensionModel
-import STSData.Dataset as stsDataset
+from TrainingData import TrainingData, Utils
+from STSData import Evaluation
 import tensorflow as tf
 import transformers
 
@@ -14,33 +13,38 @@ def _setStepWiseLinearLearningRate(model):
 
 def encodeText(texts, tokenizer):
     ids = tokenizer.batch_encode_plus(texts, add_special_tokens=True, max_length=512, truncation=True)['input_ids']
-    return RandomTrainingData.batchEncodeData(ids)
+    return Utils.batchEncodeData(ids)
 
 
 def main():
+    negativeK, batchSize = 7, 16
+    fetchSize = 500 * int(batchSize / (negativeK + 1))  # Fetches data for 500 updates
+    maxSentLength = 75
     modelName = "bert-base-uncased"
+    corpusName = "random"
+
+    # Load Model
     m1 = transformers.TFAutoModel.from_pretrained(modelName)
     m2 = transformers.TFAutoModel.from_pretrained(modelName)
     tokenizer = transformers.AutoTokenizer.from_pretrained(modelName)
-
     model = ContrastiveTensionModel.ContrastivTensionModel(m1, m2)
     _setStepWiseLinearLearningRate(model)
+    maxWord = tokenizer.vocab_size - 1
 
-    maxSentLength, maxWord = 75, tokenizer.vocab_size - 1
-    negativeK, batchSize = 7, 16
-    fetchSize = 500 * int(batchSize / (negativeK + 1))  # Fetches data for 500 updates
-
-    evalData = stsDataset.loadDevData()
+    # Setup Training Data
     textEncodeFunc = lambda x: encodeText(x, tokenizer)
+    corpusDataFunc, generateTrainingDataFunc, evalDataFunc = TrainingData.Corpuses[corpusName]
+    corpusData = corpusDataFunc()
+    evalData = evalDataFunc()
 
-    model1Eval, model2Eval = Evaluation.evaluateOnData(model, textEncodeFunc, evalData)
-    print("Pre Training Evaluation Scores:", model1Eval)
-
+    #model1Eval, model2Eval = Evaluation.evaluateOnData(model, textEncodeFunc, evalData)
+    #print("Pre Training Evaluation Scores:", model1Eval)
     while (True):
-        inds1, att1, inds2, att2, labels = RandomTrainingData.generateRandomTrainingData(numBatches=fetchSize,
-                                                                                         negativeK=negativeK,
-                                                                                         maxWord=maxWord,
-                                                                                         maxLength=maxSentLength)
+        inds1, att1, inds2, att2, labels = generateTrainingDataFunc(tokenizer, corpusData, numBatches=fetchSize,
+                                                                    negativeK=negativeK,
+                                                                    maxLength=maxSentLength,
+                                                                    maxWord=maxWord
+                                                                    )
 
         loss, pLoss, nLoss = model.fit((inds1, att1, inds2, att2), labels, batch_size=batchSize)
         print("Loss: {} pLoss: {}  nLoss: {}".format(loss, pLoss, nLoss))
