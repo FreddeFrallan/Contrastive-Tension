@@ -1,5 +1,6 @@
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats import pearsonr, spearmanr
+from ContrastiveTension import Inference
 from STSData import Dataset
 import numpy as np
 import tqdm
@@ -19,20 +20,16 @@ def evalCorrelationScores(sent2Vecs, dataset):
     return {'Pearson': pearResults[0], 'Spearman': spearResults[0]}
 
 
-def evaluateOnData(contrastiveModel, textEncodeFunc, dataset, batchSize=512):
-    texts = Dataset._loadUniqueCaptions(dataset, True)
-    inputIds, attention = textEncodeFunc(texts)
-    sent2VecModel1, sent2VecModel2 = {}, {}
+def evaluateSTS(model, tokenizer, batch_size=512):
+    test_data = Dataset.loadTestData()
+    texts = Dataset.getUniqueCaptions(test_data)
 
-    def addInSent2Vec(texts, embeddings, targetDict):
-        for txt, emb in zip(texts, embeddings):
-            targetDict[txt] = emb
+    sent2Vec = {}
+    for i in tqdm.tqdm(range(0, len(texts), batch_size), "Generating Eval Embeddings"):
+        batchTexts = texts[i:i + batch_size]
+        embs = Inference.generateSentenceEmbeddings(model, tokenizer, batchTexts)
 
-    f = lambda x, i: x[i:i + batchSize]
-    for i in tqdm.tqdm(range(0, len(texts), batchSize), "Generating Eval Embeddings"):
-        batchTexts, batchInds, batchAtt = f(texts, i), f(inputIds, i), f(attention, i)
-        batchEmbs1, batchEmbs2 = contrastiveModel((batchInds, batchAtt), training=False)
-        addInSent2Vec(batchTexts, batchEmbs1, sent2VecModel1)
-        addInSent2Vec(batchTexts, batchEmbs2, sent2VecModel2)
+        for txt, emb in zip(batchTexts, embs):
+            sent2Vec[txt] = emb
 
-    return evalCorrelationScores(sent2VecModel1, dataset), evalCorrelationScores(sent2VecModel2, dataset)
+    return evalCorrelationScores(sent2Vec, test_data)
