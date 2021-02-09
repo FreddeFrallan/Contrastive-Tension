@@ -56,6 +56,16 @@ This repository contains:
 ## Pre-trained Models
 ### Best Performing Models
 
+| Model| STS benchmark | Parameters|
+| ----------------------------------|:-----: |:-----: |
+|**Fully Unsupervised**    ||
+| BERT-Large-CT(SED-2)        | 80.44 | 334 M|
+|**Using NLI Data**    ||
+| BERT-Distil-NLI-CT             | 81.31  | 66 M|
+| BERT-Base-NLI-CT  | 82.38 | 108 M|
+|**Using STS-b Data**    ||
+| RoBerta-Large-STSb        | 88.33  | 334 M|
+
 ### Paper Models
 | Model| STS benchmark | Parameters|
 | ----------------------------------|:-----: |:-----: |
@@ -76,10 +86,6 @@ This repository contains:
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- LICENSE -->
