@@ -56,31 +56,25 @@ This repository contains:
 ## Pre-trained Models
 ### Best Performing Models
 
-| Model| STS benchmark | Parameters|
-| ----------------------------------|:-----: |:-----: |
-|**Fully Unsupervised**    ||
-| BERT-Large-CT(SED-2)        | 80.44 | 334 M|
-|**Using NLI Data**    ||
-| BERT-Distil-NLI-CT             | 81.31  | 66 M|
-| BERT-Base-NLI-CT  | 82.38 | 108 M|
-|**Using STS-b Data**    ||
-| RoBerta-Large-STSb        | 88.33  | 334 M|
 
-### Paper Models
+| Model| Avg Unsupervised STS |STS-b | Parameters|
+| ----------------------------------|:-----: |:-----: |:-----: |
+|**Fully Unsupervised**    ||
+| BERT-Distil-CT             | 75.12 / 75.04| 78.63 / 77.91 | 66 M|
+| BERT-Base-CT  | 73.55 / 73.36 | 75.49 / 73.31 | 108 M|
+| BERT-Large-CT        | 77.12 / 76.93| 80.75 / 79.82 | 334 M|
+|**Using NLI Data**    ||
+| BERT-Distil-NLI-CT             | 76.65 / 76.63 | 79.74 / 81.01 | 66 M|
+| BERT-Base-NLI-CT  | 76.05 / 76.28 | 79.98 / 81.47  | 108 M|
+| BERT-Large-NLI-CT        | <b> 77.42 / 77.41 </b> | <b> 80.92 / 81.66 </b>  | 334 M|
+
+
 | Model| STS benchmark | Parameters|
 | ----------------------------------|:-----: |:-----: |
-|**Fully Unsupervised**    ||
-| BERT-Distil-CT             | 78.56 | 66 M|
-| BERT-Base-CT  | 76.32 | 108 M|
-| BERT-Large-CT        | 78.99 | 334 M|
-|**Using NLI Data**    ||
-| BERT-Distil-NLI-CT             | 80.11  | 66 M|
-| BERT-Base-NLI-CT  | 81.24  | 108 M|
-| BERT-Large-NLI-CT        | 82.14  | 334 M|
-|**Using STS-b Data**    ||
-| BERT-Distil-STSb             | 85.80  | 66 M|
-| BERT-Base-STSb  | 85.95  | 108 M|
-| BERT-Large-STSb        | 86.43  | 334 M|
+| BERT-Distil-STSb             | 84.85 / 85.46  | 66 M|
+| BERT-Base-STSb  | 85.31 / 85.76  | 108 M|
+| BERT-Large-STSb        | 85.86 / 86.47  | 334 M|
+| RoBerta-Large-STSb        | <b> 87.50 / 88.33 </b>  | 334 M|
 
 
 
