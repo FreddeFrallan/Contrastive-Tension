@@ -6,7 +6,7 @@
   <p align="center">  
     <a href="https://huggingface.co/Contrastive-Tension">Huggingface Models</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/FreddeFrallan/Contrastive-Tension/issues">Report Bug</a>
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
@@ -22,10 +22,10 @@
       <a href="#Overview">Overview</a>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#Pre-trained Models">Pre-trained Models</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#Unsupervised / Zero-Shot">Unsupervised</a></li>
+        <li><a href="#Supervised">Supervised</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -42,7 +42,7 @@
 This is the official code accompanied with the paper [Semantic Re-Tuning via Contrastive Tension](https://openreview.net/pdf?id=Ov_sMNau-PF).</br>
 The paper was accepted at ICLR-2021 and official reviews and responses can be found at [OpenReview](https://openreview.net/forum?id=Ov_sMNau-PF).
 
-Contrastive Tension is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves state of the art unsupervised semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper all sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
+Contrastive Tension is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves state of the art semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
 
 This repository contains:
 * Tensorflow 2 implementation of the Contrastive Tension algorithm
@@ -93,7 +93,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 If you have questions regarding the paper, please consider creating a comment via the official [OpenReview submission](https://openreview.net/forum?id=Ov_sMNau-PF). </br>
-If you have questions regarding the code or otherwise related to this Github page, please open an issue.
+If you have questions regarding the code or otherwise related to this Github page, please open an [issue](https://github.com/FreddeFrallan/Contrastive-Tension/issues).
 
 For other purposes, feel free to contact me directly at: Fredrk.Carlsson@ri.se
 
