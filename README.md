@@ -4,7 +4,7 @@
   <h3 align="center">State of the art Semantic Sentence Embeddings</h3>
   
   <p align="center">  
-    <a href="https://huggingface.co/welcome">Huggingface Models</a>
+    <a href="https://huggingface.co/Contrastive-Tension">Huggingface Models</a>
     ·
     <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
     ·
@@ -42,6 +42,8 @@
 This is the official code accompanied with the paper [Semantic Re-Tuning via Contrastive Tension](https://openreview.net/pdf?id=Ov_sMNau-PF).</br>
 The paper was accepted at ICLR-2021 and official reviews and responses can be found at [OpenReview](https://openreview.net/forum?id=Ov_sMNau-PF).
 
+Contrastive Tension is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves state of the art unsupervised semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper all sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
+
 This repository contains:
 * Tensorflow 2 implementation of the Contrastive Tension algorithm
 * State of the art pre-trained STS models
@@ -54,20 +56,21 @@ This repository contains:
 
 <!-- GETTING STARTED -->
 ## Pre-trained Models
-### Best Performing Models
+### Unsupervised / Zero-Shot
 
 
 | Model| Avg Unsupervised STS |STS-b | Parameters|
 | ----------------------------------|:-----: |:-----: |:-----: |
 |**Fully Unsupervised**    ||
-| BERT-Distil-CT             | 75.12 / 75.04| 78.63 / 77.91 | 66 M|
-| BERT-Base-CT  | 73.55 / 73.36 | 75.49 / 73.31 | 108 M|
-| BERT-Large-CT        | 77.12 / 76.93| 80.75 / 79.82 | 334 M|
+| [BERT-Distil-CT](https://huggingface.co/Contrastive-Tension/BERT-Distil-CT)             | 75.12 / 75.04| 78.63 / 77.91 | 66 M|
+| [BERT-Base-CT](https://huggingface.co/Contrastive-Tension/BERT-Base-CT)  | 73.55 / 73.36 | 75.49 / 73.31 | 108 M|
+| [BERT-Large-CT](https://huggingface.co/Contrastive-Tension/BERT-Large-CT)        | 77.12 / 76.93| 80.75 / 79.82 | 334 M|
 |**Using NLI Data**    ||
-| BERT-Distil-NLI-CT             | 76.65 / 76.63 | 79.74 / 81.01 | 66 M|
-| BERT-Base-NLI-CT  | 76.05 / 76.28 | 79.98 / 81.47  | 108 M|
-| BERT-Large-NLI-CT        | <b> 77.42 / 77.41 </b> | <b> 80.92 / 81.66 </b>  | 334 M|
+| [BERT-Distil-NLI-CT](https://huggingface.co/Contrastive-Tension/BERT-Distil-NLI-CT)             | 76.65 / 76.63 | 79.74 / 81.01 | 66 M|
+| [BERT-Base-NLI-CT](https://huggingface.co/Contrastive-Tension/BERT-Base-NLI-CT)  | 76.05 / 76.28 | 79.98 / 81.47  | 108 M|
+| [BERT-Large-NLI-CT](https://huggingface.co/Contrastive-Tension/BERT-Large-NLI-CT)        | <b> 77.42 / 77.41 </b> | <b> 80.92 / 81.66 </b>  | 334 M|
 
+### Supervised
 
 | Model| STS benchmark | Parameters|
 | ----------------------------------|:-----: |:-----: |
@@ -96,6 +99,7 @@ For other purposes, feel free to contact me directly at: Fredrk.Carlsson@ri.se
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+* [SentEval](https://github.com/facebookresearch/SentEval)
 * [Huggingface](https://huggingface.co/)
 * [Sentence-Transformer](https://github.com/UKPLab/sentence-transformers)
 * [Best Readme Template](https://github.com/othneildrew/Best-README-Template)
