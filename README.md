@@ -4,7 +4,7 @@
   <h3 align="center">State of the art Semantic Sentence Embeddings</h3>
   
   <p align="center">  
-    <a href="https://openreview.net/pdf?id=Ov_sMNau-PF">Paper</a>
+    <a href="https://openreview.net/pdf?id=Ov_sMNau-PF">Published Paper</a>
     ·
     <a href="https://huggingface.co/Contrastive-Tension">Huggingface Models</a>
     ·
@@ -42,10 +42,10 @@
 This is the official code accompanied with the paper [Semantic Re-Tuning via Contrastive Tension](https://openreview.net/pdf?id=Ov_sMNau-PF).</br>
 The paper was accepted at ICLR-2021 and official reviews and responses can be found at [OpenReview](https://openreview.net/forum?id=Ov_sMNau-PF).
 
-Contrastive Tension is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves state of the art semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
+Contrastive Tension(CT) is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves state of the art semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
 
 This repository contains:
-* Tensorflow 2 implementation of the Contrastive Tension algorithm
+* Tensorflow 2 implementation of the CT algorithm
 * State of the art pre-trained STS models
 * Tensorflow 2 inference code
 * PyTorch inference code
@@ -58,10 +58,12 @@ While it is possible that other versions works equally fine, we have worked with
 
 <!-- GETTING STARTED -->
 ## Pre-trained Models
-* Note that these models are <b>not</b> trained with the exact hyperparameters as those disclosed in the original CT paper. Rather, the parameters are from a short follow-up paper currently under review.
+Note that these models are <b>not</b> trained with the exact hyperparameters as those disclosed in the original CT paper. Rather, the parameters are from a short follow-up paper currently under review.
 
-All evaluation is done using the [SentEval](https://github.com/facebookresearch/SentEval) framework.
+All evaluation is done using the [SentEval](https://github.com/facebookresearch/SentEval) framework, and shows the: (Pearson / Spearman) correlations
 ### Unsupervised / Zero-Shot
+As both the training of BERT, and CT itself is fully self-supervised, the models only tuned with CT require no labeled data whatsoever.<br>
+The NLI models however, are first fine-tuned towards a natural language inference task, which requires labeled data.
 
 | Model| Avg Unsupervised STS |STS-b | Parameters|
 | ----------------------------------|:-----: |:-----: |:-----: |
@@ -80,10 +82,10 @@ To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via se
 
 | Model| STS benchmark | Parameters|
 | ----------------------------------|:-----: |:-----: |
-| BERT-Distil-STSb             | 84.85 / 85.46  | 66 M|
-| BERT-Base-STSb  | 85.31 / 85.76  | 108 M|
-| BERT-Large-STSb        | 85.86 / 86.47  | 334 M|
-| RoBerta-Large-STSb        | <b> 87.50 / 88.33 </b>  | 334 M|
+| BERT-Distil-CT-STSb             | 84.85 / 85.46  | 66 M|
+| BERT-Base-CT-STSb  | 85.31 / 85.76  | 108 M|
+| BERT-Large-CT-STSb        | 85.86 / 86.47  | 334 M|
+| RoBerta-Large-CT-STSb        | <b> 87.50 / 88.33 </b>  | 334 M|
 
 
 
