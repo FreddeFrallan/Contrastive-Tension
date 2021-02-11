@@ -18,7 +18,7 @@
 This is the official code accompanied with the paper [Semantic Re-Tuning via Contrastive Tension](https://openreview.net/pdf?id=Ov_sMNau-PF).</br>
 The paper was accepted at ICLR-2021 and official reviews and responses can be found at [OpenReview](https://openreview.net/forum?id=Ov_sMNau-PF).
 
-Contrastive Tension(CT) is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves State-Of-The-Art(SOTA) semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
+Contrastive Tension(CT) is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves State-Of-The-Art(SOTA) sentence embeddings for Semantic Textual Similarity(STS). All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
 
 This repository contains:
 * Tensorflow 2 implementation of the CT algorithm
@@ -61,7 +61,7 @@ To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via se
 | BERT-Distil-CT-STSb             | 84.85 / 85.46  | 66 M|
 | BERT-Base-CT-STSb  | 85.31 / 85.76  | 108 M|
 | BERT-Large-CT-STSb        | 85.86 / 86.47  | 334 M|
-| RoBerta-Large-CT-STSb        | <b> 87.50 / 88.33 </b>  | 334 M|
+| RoBerta-Large-CT-STSb        | <b> 87.56 / 88.42 </b>  | 334 M|
 
 
 
