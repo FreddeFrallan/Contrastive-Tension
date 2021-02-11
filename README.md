@@ -53,7 +53,7 @@ The NLI models however, are first fine-tuned towards a natural language inferenc
 | [BERT-Large-NLI-CT](https://huggingface.co/Contrastive-Tension/BERT-Large-NLI-CT)        | <b> 77.42 / 77.41 </b> | <b> 80.92 / 81.66 </b>  | 334 M|
 
 ### Supervised
-These models are fine-tuned directly with STS data, using the training object proposed by [S-BERT](https://github.com/UKPLab/sentence-transformers) using their [code](https://arxiv.org/abs/1908.10084).<br>
+These models are fine-tuned directly with STS data, using the training object proposed by [S-BERT](https://arxiv.org/abs/1908.10084) using their [code](https://arxiv.org/abs/1908.10084).<br>
 To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via sentence embeddings.
 
 | Model| STS-b | #Parameters|
