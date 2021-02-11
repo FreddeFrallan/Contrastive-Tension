@@ -1,4 +1,4 @@
-def _loadUniqueCaptions(dataset, sortOnSize=True):
+def getUniqueCaptions(dataset, sortOnSize=True):
     captions = {}
     for s1, s2, _ in dataset:
         captions[s1] = 1

@@ -1,3 +1,7 @@
+'''
+Please note that this code is optimized towards comprehension and not performance.
+'''
+
 from tensorflow.python.keras import backend as K
 import tensorflow as tf
 import numpy as np
