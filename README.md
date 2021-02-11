@@ -13,36 +13,12 @@
 </p>
 
 
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#Overview">Overview</a>
-    </li>
-    <li>
-      <a href="#Pre-trained Models">Pre-trained Models</a>
-      <ul>
-        <li><a href="#Unsupervised / Zero-Shot">Unsupervised</a></li>
-        <li><a href="#Supervised">Supervised</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## Overview
 This is the official code accompanied with the paper [Semantic Re-Tuning via Contrastive Tension](https://openreview.net/pdf?id=Ov_sMNau-PF).</br>
 The paper was accepted at ICLR-2021 and official reviews and responses can be found at [OpenReview](https://openreview.net/forum?id=Ov_sMNau-PF).
 
-Contrastive Tension(CT) is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves state of the art semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
+Contrastive Tension(CT) is a fully self-supervised algorithm for re-tuning already pre-trained transformer Language Models, and achieves State-Of-The-Art(SOTA) semantic sentence embeddings. All that is required is hence a pre-trained model and a modestly large text corpus. The results presented in the paper sampled text data from Wikipedia, where it used a maximum of 1.6M unique sentences.
 
 This repository contains:
 * Tensorflow 2 implementation of the CT algorithm
@@ -65,7 +41,7 @@ All evaluation is done using the [SentEval](https://github.com/facebookresearch/
 As both the training of BERT, and CT itself is fully self-supervised, the models only tuned with CT require no labeled data whatsoever.<br>
 The NLI models however, are first fine-tuned towards a natural language inference task, which requires labeled data.
 
-| Model| Avg Unsupervised STS |STS-b | Parameters|
+| Model| Avg Unsupervised STS |STS-b | #Parameters|
 | ----------------------------------|:-----: |:-----: |:-----: |
 |**Fully Unsupervised**    ||
 | [BERT-Distil-CT](https://huggingface.co/Contrastive-Tension/BERT-Distil-CT)             | 75.12 / 75.04| 78.63 / 77.91 | 66 M|
@@ -77,10 +53,10 @@ The NLI models however, are first fine-tuned towards a natural language inferenc
 | [BERT-Large-NLI-CT](https://huggingface.co/Contrastive-Tension/BERT-Large-NLI-CT)        | <b> 77.42 / 77.41 </b> | <b> 80.92 / 81.66 </b>  | 334 M|
 
 ### Supervised
-These models are fine-tuned directly towards STS data, using the supervised training object proposed by [S-BERT](https://github.com/UKPLab/sentence-transformers).<br>
+These models are fine-tuned directly with STS data, using the training object proposed by [S-BERT](https://github.com/UKPLab/sentence-transformers) using their [code](https://arxiv.org/abs/1908.10084).<br>
 To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via sentence embeddings.
 
-| Model| STS benchmark | Parameters|
+| Model| STS-b | #Parameters|
 | ----------------------------------|:-----: |:-----: |
 | BERT-Distil-CT-STSb             | 84.85 / 85.46  | 66 M|
 | BERT-Base-CT-STSb  | 85.31 / 85.76  | 108 M|
