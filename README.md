@@ -4,11 +4,11 @@
   <h3 align="center">State of the art Semantic Sentence Embeddings</h3>
   
   <p align="center">  
+    <a href="https://openreview.net/pdf?id=Ov_sMNau-PF">Paper</a>
+    ·
     <a href="https://huggingface.co/Contrastive-Tension">Huggingface Models</a>
     ·
     <a href="https://github.com/FreddeFrallan/Contrastive-Tension/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
 </p>
 
@@ -51,13 +51,17 @@ This repository contains:
 * PyTorch inference code
 
 ### Requirements
-* Python >= 3.6
-* Transformers >= 4.1.1
+While it is possible that other versions works equally fine, we have worked with the following:
+
+* Python = 3.6.9
+* Transformers = 4.1.1
 
 <!-- GETTING STARTED -->
 ## Pre-trained Models
-### Unsupervised / Zero-Shot
+* Note that these models are <b>not</b> trained with the exact hyperparameters as those disclosed in the original CT paper. Rather, the parameters are from a short follow-up paper currently under review.
 
+All evaluation is done using the [SentEval](https://github.com/facebookresearch/SentEval) framework.
+### Unsupervised / Zero-Shot
 
 | Model| Avg Unsupervised STS |STS-b | Parameters|
 | ----------------------------------|:-----: |:-----: |:-----: |
@@ -71,6 +75,8 @@ This repository contains:
 | [BERT-Large-NLI-CT](https://huggingface.co/Contrastive-Tension/BERT-Large-NLI-CT)        | <b> 77.42 / 77.41 </b> | <b> 80.92 / 81.66 </b>  | 334 M|
 
 ### Supervised
+These models are fine-tuned directly towards STS data, using the supervised training object proposed by [S-BERT](https://github.com/UKPLab/sentence-transformers).<br>
+To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via sentence embeddings.
 
 | Model| STS benchmark | Parameters|
 | ----------------------------------|:-----: |:-----: |
