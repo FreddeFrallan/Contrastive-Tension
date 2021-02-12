@@ -58,7 +58,7 @@ To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via se
 
 | Model| STS-b | #Parameters|
 | ----------------------------------|:-----: |:-----: |
-| BERT-Distil-CT-STSb             | 84.85 / 85.46  | 66 M|
+| [BERT-Distil-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Distil-CT-STSb)             | 84.85 / 85.46  | 66 M|
 | [BERT-Base-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Base-CT-STSb)  | 85.31 / 85.76  | 108 M|
 | [BERT-Large-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Large-CT-STSb)        | 85.86 / 86.47  | 334 M|
 | [RoBerta-Large-CT-STSb](https://huggingface.co/Contrastive-Tension/RoBerta-Large-CT-STSb)        | <b> 87.56 / 88.42 </b>  | 334 M|
