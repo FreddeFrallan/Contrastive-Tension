@@ -82,6 +82,14 @@ To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via se
 | [BERT-Large-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Large-CT-STSb)        | 85.86 / 86.47  | 334 M|
 | [RoBerta-Large-CT-STSb](https://huggingface.co/Contrastive-Tension/RoBerta-Large-CT-STSb)        | <b> 87.56 / 88.42 </b>  | 334 M|
 
+### Other Languages
+
+| Model | Language | #Parameters|
+| ----------------------------------|:-----: |:-----: |
+| [BERT-Base-Swe-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Base-Swe-CT-STSb/tree/main)             | Swedish  | 108 M|
+
+
+
 <!-- LICENSE -->
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
