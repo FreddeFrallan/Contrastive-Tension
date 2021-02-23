@@ -32,9 +32,28 @@ While it is possible that other versions works equally fine, we have worked with
 * Python = 3.6.9
 * Transformers = 4.1.1
 
+<!-- USAGE EXAMPLES -->
+## Usage
+All the models and tokenizers are available via the Huggingface interface, and can be loaded for both Tensorflow and PyTorch:
+```python
+import transformers
+
+tokenizer = transformers.AutoTokenizer.from_pretrained('Contrastive-Tension/RoBerta-Large-CT-STSb')
+
+TF_model = transformers.TFAutoModel.from_pretrained('Contrastive-Tension/RoBerta-Large-CT-STSb')
+PT_model = transformers.AutoModel.from_pretrained('Contrastive-Tension/RoBerta-Large-CT-STSb')
+```
+
+### Inference
+To perform inference with the pre-trained models (or other Huggigface models) please see the script [ExampleBatchInference.py](ExampleBatchInference.py). <br>
+The most important thing to remember when running inference is to also apply the attention_masks on the batch output vector before mean pooling.
+
+### CT Training
+To run CT on your own models and text data see [ExampleTraining.py](ExampleTraining.py) for a comprehensive example. This file currently creates a dummy corpus of random text. Simply replace this to whatever corpus you like.
+
 <!-- GETTING STARTED -->
 ## Pre-trained Models
-Note that these models are <b>not</b> trained with the exact hyperparameters as those disclosed in the original CT paper. Rather, the parameters are from a short follow-up paper currently under review.
+Note that these models are <b>not</b> trained with the exact hyperparameters as those disclosed in the original CT paper. Rather, the parameters are from a short follow-up paper currently under review, which once again pushes the SOTA.
 
 All evaluation is done using the [SentEval](https://github.com/facebookresearch/SentEval) framework, and shows the: (Pearson / Spearman) correlations
 ### Unsupervised / Zero-Shot
@@ -58,15 +77,17 @@ To our knowledge our RoBerta-Large-STSb is the current SOTA model for STS via se
 
 | Model| STS-b | #Parameters|
 | ----------------------------------|:-----: |:-----: |
-| BERT-Distil-CT-STSb             | 84.85 / 85.46  | 66 M|
+| [BERT-Distil-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Distil-CT-STSb)             | 84.85 / 85.46  | 66 M|
 | [BERT-Base-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Base-CT-STSb)  | 85.31 / 85.76  | 108 M|
 | [BERT-Large-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Large-CT-STSb)        | 85.86 / 86.47  | 334 M|
 | [RoBerta-Large-CT-STSb](https://huggingface.co/Contrastive-Tension/RoBerta-Large-CT-STSb)        | <b> 87.56 / 88.42 </b>  | 334 M|
 
+### Other Languages
 
+| Model | Language | #Parameters|
+| ----------------------------------|:-----: |:-----: |
+| [BERT-Base-Swe-CT-STSb](https://huggingface.co/Contrastive-Tension/BERT-Base-Swe-CT-STSb/tree/main)             | Swedish  | 108 M|
 
-<!-- USAGE EXAMPLES -->
-## Usage
 
 
 <!-- LICENSE -->
