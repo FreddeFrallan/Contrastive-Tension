@@ -16,9 +16,17 @@ def applyOutMaskToEmbeddings(embs, mask):
     return summedEmbs / lengths
 
 
-def generateSentenceEmbeddings(model, tokenizer, texts, tensorType='tf'):
-    inData = tokenizer(texts, padding=True, return_tensors=tensorType)
-    inputIds, attentionMask, outputMask = inData['input_ids'], inData['attention_mask'], inData['attention_mask']
+def tensorflowGenerateSentenceEmbeddings(model, tokenizer, texts):
+    inData = tokenizer(texts, padding=True, return_tensors='tf')
+    inputIds, attentionMask = inData['input_ids'], inData['attention_mask']
 
-    preMaskEmbeddings = model(inData)[0]
-    return applyOutMaskToEmbeddings(preMaskEmbeddings, outputMask)
+    preMaskEmbeddings = model(input_ids=inputIds, attention_mask=attentionMask)[0]
+    return applyOutMaskToEmbeddings(preMaskEmbeddings, attentionMask)
+
+def torchGenerateSentenceEmbeddings(model, tokenizer, texts):
+    inData = tokenizer(texts, padding=True, return_tensors='pt')
+    inputIds, attentionMask = inData['input_ids'], inData['attention_mask']
+
+    f = lambda x: np.array(x.detach())
+    preMaskEmbeddings = model(input_ids=inputIds, attention_mask=attentionMask)[0]
+    return applyOutMaskToEmbeddings(f(preMaskEmbeddings), f(attentionMask))
