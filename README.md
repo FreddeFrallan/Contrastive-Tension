@@ -46,7 +46,7 @@ PT_model = transformers.AutoModel.from_pretrained('Contrastive-Tension/RoBerta-L
 
 ### Inference
 To perform inference with the pre-trained models (or other Huggigface models) please see the script [ExampleBatchInference.py](ExampleBatchInference.py). <br>
-The most important thing to remember when running inference is to also apply the attention_masks on the batch output vector before mean pooling.
+The most important thing to remember when running inference is to apply the attention_masks on the batch output vector before mean pooling, as is done in the example script.
 
 ### CT Training
 To run CT on your own models and text data see [ExampleTraining.py](ExampleTraining.py) for a comprehensive example. This file currently creates a dummy corpus of random text. Simply replace this to whatever corpus you like.
