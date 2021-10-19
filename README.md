@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <h1 align="center">Contrastive Tension</h1>
-  <h3 align="center">State of the art Semantic Sentence Embeddings</h3>
+  <h3 align="center">Semantic Sentence Embeddings</h3>
   
   <p align="center">  
     <a href="https://openreview.net/pdf?id=Ov_sMNau-PF">Published Paper</a>
