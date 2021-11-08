@@ -85,9 +85,9 @@ def tensorflowContrastiveTension(model_name, tokenizer_name, corpus_data, evalFu
 
         # Perform Evaluation of the models between Epochs, if we have passed an evaluation function
         if (evalFunc != None):
-            eval_1 = evalFunc(model.model1, tokenizer)
+            eval_1 = evalFunc(model.model1, tokenizer, batch_size)
             print("Evaluation Scores Model-1:", eval_1)
-            eval_2 = evalFunc(model.model2, tokenizer)
+            eval_2 = evalFunc(model.model2, tokenizer, batch_size)
             print("Evaluation Scores Model-2:", eval_2)
 
             # Save the model which performed best on the evaluation data
