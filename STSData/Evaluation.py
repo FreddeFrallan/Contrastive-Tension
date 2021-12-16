@@ -33,7 +33,7 @@ def evaluateSTS(model, tokenizer, batch_size=512, use_dev_data=False):
     sent2Vec = {}
     for i in tqdm.tqdm(range(0, len(texts), batch_size), "Generating Eval Embeddings"):
         batchTexts = texts[i:i + batch_size]
-        embs = Inference.generateSentenceEmbeddings(model, tokenizer, batchTexts)
+        embs = Inference.tensorflowGenerateSentenceEmbeddings(model, tokenizer, batchTexts)
 
         for txt, emb in zip(batchTexts, embs):
             sent2Vec[txt] = emb
