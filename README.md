@@ -100,7 +100,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 If you have questions regarding the paper, please consider creating a comment via the official [OpenReview submission](https://openreview.net/forum?id=Ov_sMNau-PF). </br>
 If you have questions regarding the code or otherwise related to this Github page, please open an [issue](https://github.com/FreddeFrallan/Contrastive-Tension/issues).
 
-For other purposes, feel free to contact me directly at: Fredrk.Carlsson@ri.se
+For other purposes, feel free to contact me directly at: Fredrik.Carlsson@ri.se
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
